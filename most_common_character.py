@@ -4,15 +4,9 @@
 # in the string should be returned.
 
 def most_common_character(s: str):
-    chars = []
-    max_count = 0
-    res = ""
+    res = s[0]
     for c in s:
-        if c not in chars:
-            chars.append(c)
-    for c in chars:
-        if s.count(c) > max_count:
-            max_count = s.count(c)
+        if s.count(c) > s.count(res):
             res = c
     return res
 
