@@ -1,12 +1,24 @@
+# Please write a function named most_common_character, which takes a string argument.
+# The function returns the character which has the most occurrences within the string.
+# If there are many characters with equally many occurrences, the one which appears first
+# in the string should be returned.
+
 def most_common_character(s: str):
-    my_set = set(s)
-    print("myset", my_set)
-    lst = [s.count(c) for c in my_set]
-    return lst
+    chars = []
+    max_count = 0
+    res = ""
+    for c in s:
+        if c not in chars:
+            chars.append(c)
+    for c in chars:
+        if s.count(c) > max_count:
+            max_count = s.count(c)
+            res = c
+    return res
 
 
 if __name__ == "__main__":
     first_string = "abcdbde"
-    print(list(map(lambda x: first_string.count(x), first_string)))
-
-# TODO
+    second_string = "exemplaryelementary"
+    print(most_common_character(first_string))
+    print(most_common_character(second_string))
